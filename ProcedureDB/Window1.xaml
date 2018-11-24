@@ -1,0 +1,151 @@
+﻿<Window x:Class="ProcedureDB1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProcedureDB1"
+        mc:Ignorable="d"
+        Title="Окно входа в ПБД" Height="513" Width="800" BorderBrush="#FFB92727" WindowStyle="ToolWindow">
+
+    <Grid Background="#FFB01C1C">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" Background="#FF701F1F">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style x:Key="MyStyle">
+                    <Setter Property="Button.Background" Value="Red"/>
+                    <Setter Property="Rectangle.Fill" Value="Red"/>
+                </Style>
+                <Style x:Key="TriggerStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="Crimson"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+            <Image  Stretch="Fill" Grid.ColumnSpan="20" Grid.RowSpan="10"/>
+            <Rectangle Grid.RowSpan ="9" Grid.ColumnSpan="20" Opacity="0.805" Margin="10,15,10,29.5"  Style="{StaticResource MyStyle}">
+
+            </Rectangle>
+            <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Text="Имя" TextAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="0,20,0,0" Foreground="WhiteSmoke"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" Text="Пароль" TextAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="0,20,0,0" Foreground="WhiteSmoke"/>
+            <TextBlock x:Name="lbl" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="18" Text="Запомнить пароль" TextAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="0,20,10,0" Foreground="WhiteSmoke"/>
+            <CheckBox Grid.Column="1" Grid.Row="5" Margin="20,28,0,0"/>
+            <Button Content="Войти" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="15,15,15,15" FontSize="30" Style="{StaticResource MyStyle}" BorderThickness="0" Click="Button_Click">
+                <Button.Foreground>
+                    <SolidColorBrush x:Name="passCL" Color="White" />
+                </Button.Foreground>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="passCL" Storyboard.TargetProperty="Color" From="WhiteSmoke" To="Black"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="passCL" Storyboard.TargetProperty="Color" To="WhiteSmoke" From="Black"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <TextBox x:Name="Pass" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="8" Margin="0,7" BorderThickness="0" FontSize="20">
+                <TextBox.Background>
+                    <SolidColorBrush x:Name="passBr" Color="#FF9C1010" />
+                </TextBox.Background>
+                <TextBox.Foreground>
+                    <SolidColorBrush x:Name="passFr" Color="Black" />
+                </TextBox.Foreground>
+                <TextBox.CaretBrush>
+                    <SolidColorBrush x:Name="passCb" Color="Black" />
+                </TextBox.CaretBrush>
+                <TextBox.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="passBr" Storyboard.TargetProperty="Color" From="#FF9C1010" To="WhiteSmoke"/>
+                                <ColorAnimation Storyboard.TargetName="passFr" Storyboard.TargetProperty="Color" From="WhiteSmoke" To="Black"/>
+                                <ColorAnimation Storyboard.TargetName="passCb" Storyboard.TargetProperty="Color" From="WhiteSmoke" To="Black"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="passBr" Storyboard.TargetProperty="Color" From="WhiteSmoke" To="#FF9C1010"/>
+                                <ColorAnimation Storyboard.TargetName="passFr" Storyboard.TargetProperty="Color" From="Black" To="WhiteSmoke"/>
+                                <ColorAnimation Storyboard.TargetName="passCb" Storyboard.TargetProperty="Color" From="Black" To="WhiteSmoke"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBox.Triggers>
+            </TextBox>
+            <TextBox x:Name="User" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="10" BorderBrush="#00ABADB3" FontSize="20" Margin="0,7" BorderThickness="0" Style="{StaticResource TriggerStyle}">
+                <TextBox.Background>
+                    <SolidColorBrush x:Name="TextBr" Color="#FF9C1010" />
+                </TextBox.Background>
+                <TextBox.Foreground>
+                    <SolidColorBrush x:Name="TextFr" Color="Black" />
+                </TextBox.Foreground>
+                <TextBox.CaretBrush>
+                    <SolidColorBrush x:Name="TextCb" Color="Black" />
+                </TextBox.CaretBrush>
+
+            </TextBox>
+        </Grid>
+    </Grid>
+</Window>
